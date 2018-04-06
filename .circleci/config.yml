@@ -27,8 +27,6 @@ workflows:
   build:
     jobs:
       - build
-  push:
-    jobs:
       - push:
           filter:
             tags:
