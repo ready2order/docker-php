@@ -4,7 +4,7 @@ REPO=ready2order/php
 USAGE="./build.sh NAME (VERSION|--git-hash) [--push]"
 
 # Ensure that script auto-stops on errors.
-set -exo pipefail
+set -euxo pipefail
 
 echo "$@"
 
@@ -40,7 +40,7 @@ fi
 
 FULL_TAG="$REPO:$NAME-$VERSION"
 
-if [ ""$LOGIN" == "--login" ]; then
+if [ "$LOGIN" == "--login" ]; then
     echo $DOCKER_PW | docker login -u $DOCKER_USER  --password-stdin
 fi
 
