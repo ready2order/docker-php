@@ -24,6 +24,9 @@ case "$NAME" in
     fpm-alpine)
         DOCKERFILE=DockerfileFPMAlpine
         ;;
+    cli-alpine)
+        DOCKERFILE=DockerfileCLIAlpine
+        ;;
     *)
         echo "Invalid name: $NAME"
         ;;
