@@ -34,3 +34,4 @@ workflows:
             tags:
               # only: /^[a-z]+(\-[a-z]+)*\-\d+\.\d+(\-(alpha|beta)\d+)?$/
               only: /.*/
+
