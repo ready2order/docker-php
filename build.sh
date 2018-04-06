@@ -4,7 +4,7 @@ REPO=ready2order/php
 USAGE="./build.sh NAME (VERSION|--git-hash) [--push]"
 
 # Ensure that script auto-stops on errors.
-set -euxo pipefail
+set -exo pipefail
 
 echo "$@"
 
