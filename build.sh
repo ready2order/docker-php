@@ -50,4 +50,3 @@ if [ "$3" == "--push" ]; then
     echo "Pushing image with tag $FULL_TAG..."
     docker push $FULL_TAG || exit 1
 fi
-
