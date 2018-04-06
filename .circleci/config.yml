@@ -27,6 +27,9 @@ workflows:
   build:
     jobs:
       - build
+          filters:
+            tags:
+              only: /.*/
 
       - push:
           filters:
