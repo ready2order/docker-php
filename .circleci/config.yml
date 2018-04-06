@@ -29,9 +29,5 @@ workflows:
       - build
   push:
     jobs:
-      - push:
-          filter:
-            tags:
-              # only: /^[a-z]+(\-[a-z]+)*\-\d+\.\d+(\-(alpha|beta)\d+)?$/
-              only: /.*/
+      - push
 
