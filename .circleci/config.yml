@@ -26,11 +26,16 @@ workflows:
   version: 2
   build:
     jobs:
-      - build
+      - build:
+          filters:
+            tags:
+              ignore: /.*/
 
   deploy:
     jobs:
       - push:
           filters:
+            branches:
+              ignore: /.*/
             tags:
               only: /^[a-z]+(\-[a-z]+)*\-\d+\.\d+(\-(alpha|beta)\d+)?$/
