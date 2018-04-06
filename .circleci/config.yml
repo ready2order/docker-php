@@ -31,5 +31,4 @@ workflows:
       - push:
           filters:
             tags:
-              # only: /^[a-z]+(\-[a-z]+)*\-\d+\.\d+(\-(alpha|beta)\d+)?$/
-              only: /.*/
+              only: /^[a-z]+(\-[a-z]+)*\-\d+\.\d+(\-(alpha|beta)\d+)?$/
