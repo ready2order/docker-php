@@ -47,6 +47,6 @@ fi
 docker build -t $FULL_TAG -f $DOCKERFILE .
 
 if [ "$3" == "--push" ]; then
-    echo "Pushing image with tag $FULL_TAG..."
-    docker push $FULL_TAG || exit 1
+    echo "Pushing image with tag $FULL_TAG...";
+    docker push "$FULL_TAG"
 fi
