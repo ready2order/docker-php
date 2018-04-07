@@ -1,6 +1,0 @@
-FROM php:7.2-cli-alpine
-
-ADD bin /tmp/bin
-
-RUN    /tmp/bin/install-extensions.sh \
-    && rm -rf /tmp/* /var/cache/apk/*
