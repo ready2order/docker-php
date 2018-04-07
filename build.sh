@@ -21,7 +21,6 @@ docker build -t $REPO:7.2.4-fpm-stretch -f 7.2/stretch/fpm/Dockerfile .
 
 if [ "$3" == "--push" ]; then
     echo "Pushing image with tag $FULL_TAG...";
-    docker push "$FULL_TAG"
-    docker push $REPO:7.2.4-cli-stretch
-    docker push  $REPO:7.2.4-fpm-stretch
+    docker push $REPO:7.2.4-cli
+    docker push  $REPO:7.2.4-fpm
 fi
