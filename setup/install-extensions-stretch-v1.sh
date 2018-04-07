@@ -76,3 +76,4 @@ apt-get install -y libmagickwand-dev --no-install-recommends \
     && pecl install imagick \
     && docker-php-ext-enable imagick
 
+apt-get clean
