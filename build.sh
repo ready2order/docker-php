@@ -2,24 +2,41 @@
 
 REPO=ready2order/php
 USAGE="./build.sh NAME VERSION [--push] [--login]"
+VERSION=7.2.7
+TAG="$REPO:$VERSION"
 
 # Ensure that script auto-stops on errors.
-set -exo pipefail
+set -exou pipefail
 
 echo "$@"
 
-PUSH=$1
-LOGIN=$2
+PUSH=""
+LOGIN=""
 
-if [ "$LOGIN" == "--login" ]; then
+for ARG in "${@:2}"
+do
+	case "$ARG" in
+		--push)
+			PUSH="true"
+		;;
+		--login)
+			LOGIN="true"
+		;;
+		*)
+			echo "Unknown argument: $ARG"
+			exit 1
+		;;
+
+	esac
+done
+
+if [ "$LOGIN" == "true" ]; then
     echo $DOCKER_PW | docker login -u $DOCKER_USER  --password-stdin
 fi
 
-docker build -t $REPO:7.2.4-cli -f 7.2/stretch/cli/Dockerfile .
-docker build -t $REPO:7.2.4-fpm -f 7.2/stretch/fpm/Dockerfile .
+docker build -t $TAG -f Dockerfile .
 
-if [ "$PUSH" == "--push" ]; then
-    echo "Pushing image with tag $FULL_TAG...";
-    docker push $REPO:7.2.4-cli
-    docker push  $REPO:7.2.4-fpm
+if [ "$PUSH" == "true" ]; then
+    echo "Pushing image with tag $TAG...";
+    docker push $TAG
 fi
