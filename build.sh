@@ -13,8 +13,9 @@ echo "$@"
 PUSH=""
 LOGIN=""
 
-for ARG in "${@:2}"
+for ARG in "${@:1}"
 do
+    echo "CHECKING ARG: $ARG"
 	case "$ARG" in
 		--push)
 			PUSH="true"
