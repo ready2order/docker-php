@@ -2,7 +2,7 @@
 
 REPO=ready2order/php
 USAGE="./build.sh NAME VERSION [--push] [--login]"
-VERSION=7.2.7-1
+VERSION=$CIRCLE_TAG # get tag from circle ci
 TAG="$REPO:$VERSION"
 LATEST_TAG="$REPO:latest"
 
